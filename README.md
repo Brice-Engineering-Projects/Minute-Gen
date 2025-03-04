@@ -21,29 +21,47 @@ MinuteGen/ │── meeting_minutes/ │ ├── voice_input/ # Stores audio 
 ---
 
 ## 🛠️ Installation & Setup
-### **1️⃣ Clone the Repository**
+### **Install Ollama (Global Install)**
+Before proceeding, **you must install Ollama globally** because:
+- Ollama serves as the **AI inference backend**.
+- The Python package **only acts as a connector** to the globally installed Ollama.
+- Without a global install, **the Python package will not work**.
+
+#### **Install Ollama (Windows, Mac, or Linux)**
+🔗 **[Ollama Installation Guide](https://ollama.com/)**  
+
+For **Linux / WSL**, run:
 ```bash
-git clone https://github.com/Brice-Engineering-Projects/Minute-Gen.git
-cd Minute-Gen
+curl -fsSL https://ollama.com/install.sh | sh
 ```
+For **Mac (Homebrew):
+```
+brew install ollama
+```
+For Windows, download from [Ollama Installation Guide](https://ollama.com/) and install it.
 
+**Verify Ollama Installation**
+Run:
+```
+ollama --version
+```
+If you see a version number, Ollama is correctly installed.
 
----
-
-## 🛠️ Installation & Setup
-### **1️⃣ Clone the Repository**
+### **Clone the Repository**
 ```bash
 git clone https://github.com/Brice-Engineering-Projects/Minute-Gen.git
 cd Minute-Gen
 ```
 
 ## Set Up a Virtual Environment
+```
 python3 -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
-
+```
 ## Install Dependencies
+```
 pip install -r requirements.txt
-
+```
 ## 🎙️ Usage
 1️⃣ Place Your Audio File in the voice_input/ Folder
 
@@ -104,23 +122,25 @@ python3 transcript_to_minutes.py
 
 ## 💡 Customization
 Want to adjust the formatting? Modify the prompt inside transcript_to_minutes.py:
-
+```
 "content": f"""Convert this meeting transcript into professional meeting minutes.
 - Use section headings: **Meeting Date, Attendees, Agenda, Discussion, Decisions, Action Items**.
 - Format action items as bullet points with assignees and deadlines.
 """
-
+```
 ## 🛠️ Troubleshooting
 
 ### Ollama Errors (Summarization Issues)
 If Ollama does not return structured output, try:
+```
 - ollama pull phi3  # Ensure model is installed
-
+```
 ### Whisper Issues (Transcription Errors)
 If Whisper fails, ensure ffmpeg is installed:
+```
 - sudo apt install ffmpeg -y  # On Linux
 - brew install ffmpeg         # On Mac
-
+```
 ### 🚀 Future Enhancements
 
 ✅ Support for More Audio Formats (.wav, .m4a, .mp4)
@@ -135,6 +155,6 @@ This project is licensed under the MIT License.
 
 Pull requests are welcome! Open an issue for feature suggestions.
 
-📧 Contact: Brice-Engineering-Projects
+📧 Contact: [brice.web.development](brice.web.development@gmail.com) 
 
 ### 🚀 Turn your meetings into structured insights with MinuteGen! 📝✨
